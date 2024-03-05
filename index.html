@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Main Page</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 20px;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background-color: #f0f0f0;
+		}
+
+		.grid-item {
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		.grid-item img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.grid-item a {
+			text-decoration: none;
+			color: #333;
+			font-size: 1.2rem;
+		}
+
+		/* Add more styles as needed */
+	</style>
+</head>
+
+<body>
+	<div class="grid-item">
+		<a href="calmNightTrip/index.html">
+			<img src="https://raw.githubusercontent.com/ChunkyMonkey00/daTrip/main/calmNightTrip/thumbnail.png" alt="Image 1">
+			<p>Website 1</p>
+		</a>
+	</div>
+	<div class="grid-item">
+		<a href="https://example.com">
+			<img src="image2.jpg" alt="Image 2">
+			<p>Website 2</p>
+		</a>
+	</div>
+	<div class="grid-item">
+		<a href="https://example.com">
+			<img src="image3.jpg" alt="Image 3">
+			<p>Website 3</p>
+		</a>
+	</div>
+	<!-- Repeat the above grid item structure for up to 9 images -->
+</body>
+
+</html>
