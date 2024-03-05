@@ -1,0 +1,165 @@
+
+h1::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+h1:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+h1::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  margin: -15px;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: radial-gradient(circle at center, rgba(221, 221, 221, 0.4), rgba(211, 211, 211, 0.4));
+  z-index:-1;
+  transition: transform .5s ease;
+}
+
+h1 {
+  font-size: 5rem;
+  color: white;
+  text-shadow: 2px 2px 6px gray, 1px 1px 2px rgb(21, 21, 21);
+  z-index: 1005;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 90%;
+}
+
+h1:hover {
+  cursor:none;
+}
+
+html {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: system-ui, sans-serif;
+  overflow:hidden;
+}
+
+@keyframes rainbow-text {
+  0%, 100% {
+    background-position: 0% 50%;
+ }
+  100% {
+    background-position: 167% 50%;
+ }
+}
+
+body {
+background-color: rgb(31, 31, 31);
+}
+
+#mainC {
+    min-block-size: 100%;
+  min-inline-size: 100%;
+  box-sizing: border-box;
+  display: grid;
+  place-content: center;
+  font-family: system-ui, sans-serif;
+ background: linear-gradient(to bottom right, 
+              #ff0000, #ff0000, #ff8000, #ffff00, #00ff00, 
+              #0000ff, #8000ff, #ff00ff, #ff0000, #ff8000, #ffff00, #00ff00, 
+              #0000ff, #8000ff, #ff00ff);
+ background-size: 250% 500%;
+ animation: rainbow-text 5s infinite linear;
+ animation-iteration-count: infinite;
+ height:100vh;
+ width:100vw;
+ position:relative;
+ margin:0;
+ padding:0;
+ overflow:hidden;
+ opacity: 30%;
+}
+
+
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+
+.trip {
+  position:absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index:100;
+  left:100%;
+  background-color: rgb(31, 31, 31);
+  transition: left 0.5s ease;
+}
+
+/* Container 1 */
+.containerr {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.spiral {
+  width: 500vw;
+  height: 500vh;
+  border-radius: 0;
+  animation: spin 3s linear infinite;
+  background: linear-gradient(to bottom right, red, blue);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    background-color: red;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+    background-color: blue;
+  }
+}
+
+/* Container 2 */
+.shape {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  background-repeat: repeat;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: morph 5s ease-in-out infinite alternate;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 50%;
+  }
+  50% {
+    border-radius: 0%;
+  }
+  100% {
+    border-radius: 50%;
+  }
+}
