@@ -7,58 +7,137 @@
 	<title>Main Page</title>
 	<style>
 		body {
-			font-family: Arial, sans-serif;
+			font-family: 'Comic Sans MS', cursive, sans-serif;
 			margin: 0;
 			padding: 0;
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
 			grid-gap: 20px;
 			justify-content: center;
 			align-items: center;
 			min-height: 100vh;
-			background-color: #f0f0f0;
+			background-color: #0b0b0b;
+			color: #fff;
+			overflow: hidden;
+		}
+
+		.top-container {
+			width: 100%;
+			padding: 2px 0;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			text-align: center;
+			background-color: rgba(21, 21, 21, 0.6);
+			box-shadow: 0px 2px 5px rgba(255, 255, 255, 0.3);
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 999;
+		}
+
+		.top-container h1 {
+			color: #fff;
+			font-size: 2.5rem;
+			background: linear-gradient(to right, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff, #8000ff, #0000ff, #00ff00, #ffff00, #ff8000, #ff0000);
+			background-size: 200% 200%;
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: rainbow-text 10s infinite linear;
+		}
+
+		.fancyText {
+			color: #fff;
+			background: linear-gradient(to right, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #8000ff, #ff00ff);
+			background-size: 200% 200%;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: rainbow-text 10s infinite linear;
+		}
+
+		@keyframes rainbow-text {
+
+			0%,
+			100% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+		}
+
+		.grid-container {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 20px;
+			width: 100%;
+			padding: 0 20px;
+			/* Adjust padding as needed */
 		}
 
 		.grid-item {
 			width: 100%;
+			max-width: 250px;
+			/* Adjust max-width as needed */
 			padding: 10px;
 			box-sizing: border-box;
 			text-align: center;
+			border-radius: 10px;
+			background-color: #1f1f1f;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+			transition: transform 0.3s ease;
+			max-height: 350px;
+		}
+
+		.grid-item:hover {
+			transform: translateY(-5px);
 		}
 
 		.grid-item img {
 			max-width: 100%;
 			height: auto;
+			border-radius: 8px;
 		}
 
 		.grid-item a {
 			text-decoration: none;
-			color: #333;
+			color: #fff;
 			font-size: 1.2rem;
 		}
 
-		/* Add more styles as needed */
+		sub {
+			color: darkGray;
+			font-size: 14px;
+		}
 	</style>
 </head>
 
 <body>
-	<div class="grid-item">
-		<a href="calmNightTrip/index.html">
-			<img src="https://raw.githubusercontent.com/ChunkyMonkey00/daTrip/main/calmNightTrip/thumbnail.png" alt="Image 1">
-			<p>Website 1</p>
-		</a>
+	<div class="top-container">
+		<h1>Trip Sites</h1>
 	</div>
-	<div class="grid-item">
-		<a href="https://example.com">
-			<img src="image2.jpg" alt="Image 2">
-			<p>Website 2</p>
-		</a>
-	</div>
-	<div class="grid-item">
-		<a href="https://example.com">
-			<img src="image3.jpg" alt="Image 3">
-			<p>Website 3</p>
-		</a>
+	<div class="grid-container">
+		<div class="grid-item">
+			<a href="calmNightTrip/index.html">
+				<img src="https://raw.githubusercontent.com/ChunkyMonkey00/daTrip/main/calmNightTrip/thumbnail.png"
+                alt="Image 1">
+				<p>Calm Night</p>
+				<sub>calm, dark, cursor animations</sub>
+			</a>
+		</div>
+		<div class="grid-item">
+			<a href="https://example.com">
+				<img src="image2.jpg" alt="Image 2">
+				<p>Explore the Unknown!</p>
+			</a>
+		</div>
+		<div class="grid-item">
+			<a href="https://example.com">
+				<img src="image3.jpg" alt="Image 3">
+				<p>Embark on a Wild Adventure!</p>
+			</a>
+		</div>
 	</div>
 	<!-- Repeat the above grid item structure for up to 9 images -->
 </body>
