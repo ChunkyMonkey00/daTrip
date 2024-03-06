@@ -102,10 +102,14 @@ background-color: rgb(31, 31, 31);
   width: 100vw;
   height: 100vh;
   z-index:100;
-  left:100%;
+  left:200%;
   background-color: rgb(31, 31, 31);
   transition: left 0.5s ease;
 }
+
+#container0 {
+  left: 0%;
+} 
 
 /* Container 1 */
 .containerr {
@@ -163,3 +167,35 @@ background-color: rgb(31, 31, 31);
     border-radius: 50%;
   }
 }
+
+/* circle repeat */
+
+.circle {
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #fff;
+			animation: trippy 5s infinite alternate;
+			box-shadow: 4px 4px 5px rgba(128, 0, 128, 0.4), -4px -4px 5px rgba(128, 0, 128, 0.4),
+				-4px 4px 5px rgba(0, 128, 0, 0.4), 4px -4px 5px rgba(0, 128, 0, 0.4);
+		}
+
+		@keyframes trippy {
+			0% {
+				transform: translateY(0) rotate(0deg);
+				border-radius: 25%;
+				opacity: 1;
+			}
+
+			50% {
+				transform: translateY(300px) rotate(360deg);
+				border-radius: 50%;
+				opacity: 0.5;
+			}
+
+			100% {
+				transform: translateY(0) rotate(720deg);
+				border-radius: 25%;
+				opacity: 1;
+			}
+		}
