@@ -6,17 +6,15 @@ mouseTimer = 0;
 journeyStarted = false;
 
 trip = 0;
-trips = 4;
+trips = 3;
 
 function mouseStart(e) {
   if(!mouseOn) mouseTimer = 0;
   mouseOn = true;
-  console.log('in')
 }
 
 function mouseEnd() {
   mouseOn = false;
-  console.log('out');
   if(journeyStarted) {
     mouseTimer = 0;
     journeyStarted = false;
@@ -40,12 +38,12 @@ setInterval(update, 100);
 function startJourney() {
   trip++;
   if(trip >= trips) trip = 0;
-  if (trip == 3) { drawing = true; reset(); }
+  if (trip == 1) { drawing = true; reset(); }
   else { drawing = false; }
   journeyStarted = true;
   document.querySelector("#tripStart").removeEventListener("mouseover", mouseStart);
-  if(trip != 0) document.querySelector("#container"+trip).style.left = "0%"; else 
-  {
+  document.querySelector("#container"+trip).style.left = "0%";
+  if(trip == 0) {
     clearTrips();
   }
 }
@@ -61,13 +59,16 @@ assignZ();
 
 function clearTrips() {
   document.querySelectorAll(".trip").forEach(function (element) {
-    element.style.left = "200%";
+    if (element.id != "container0") {
+    element.style.left = "300%";
+    }
   });
 }
 
 function assignColors() {
   document.querySelectorAll(".trip").forEach(function (element, i) {
     element.style.backgroundColor = `rgb(${31 + (20 * i)}, ${31 + (20 * i)}, ${31 + (20 * i)})`;
+    if(i==1) element.style.backgroundColor = "rgb(11, 11, 11)";
   });
 }
 assignColors();
@@ -336,8 +337,6 @@ window.onload = function () {
   canvas.width = parentWidth;
   canvas.height = parentHeight;
 
-  console.log(parentHeight, parentWidth);
-
   start();
 };
 
@@ -354,4 +353,28 @@ function reset() {
 
   // Reset cloth simulation
   cloth = new Cloth();
+}
+
+/* circle repeat */
+// Number of rows and columns for the checkerboard
+const numRows = 20;
+const numCols = 20;
+
+// Loop to create circles in a checkerboard pattern
+for (let row = 0; row < numRows; row++) {
+  for (let col = 0; col < numCols; col++) {
+    // Create a circle element if row and column are both even or both odd
+    if ((row % 2 === 0 && col % 2 === 0) || (row % 2 !== 0 && col % 2 !== 0)) {
+      // Create a circle element
+      const circle = document.createElement('div');
+      circle.className = 'circle';
+
+      // Position the circle based on row and column
+      circle.style.top = (row * 150) - 300 + 'px';
+      circle.style.left = (col * 150) - 200 + 'px';
+
+      // Append the circle to the body
+      document.getElementById("container2").appendChild(circle);
+    }
+  }
 }
