@@ -68,7 +68,7 @@ function clearTrips() {
 function assignColors() {
   document.querySelectorAll(".trip").forEach(function (element, i) {
     element.style.backgroundColor = `rgb(${31 + (20 * i)}, ${31 + (20 * i)}, ${31 + (20 * i)})`;
-    if(i==1) element.style.backgroundColor = "rgb(11, 11, 11)";
+    if(i==2) element.style.backgroundColor = "rgb(11, 11, 11)";
   });
 }
 assignColors();
@@ -283,15 +283,17 @@ function updatec() {
 
 function start() {
   ctx.scale(2, 2);
-  ctx.translate(-300, -50);
+  var xT = canvas.width / 4;
+  var yT = 50;
+  ctx.translate(-xT, -yT);
 
   canvas.onmousedown = function (e) {
     mouse.button = e.which;
     mouse.px = mouse.x;
     mouse.py = mouse.y;
     var rect = canvas.getBoundingClientRect();
-    mouse.x = (e.clientX / 2 + 300) - rect.left,
-      mouse.y = (e.clientY / 2 + 50) - rect.top,
+    mouse.x = (e.clientX / 2 + xT) - rect.left,
+      mouse.y = (e.clientY / 2 + yT) - rect.top,
       mouse.down = true;
     e.preventDefault();
   };
@@ -305,8 +307,8 @@ function start() {
     mouse.px = mouse.x;
     mouse.py = mouse.y;
     var rect = canvas.getBoundingClientRect();
-    mouse.x = (e.clientX / 2 + 300) - rect.left,
-      mouse.y = (e.clientY / 2 + 50) - rect.top,
+    mouse.x = (e.clientX / 2 + xT) - rect.left,
+      mouse.y = (e.clientY / 2 + yT) - rect.top,
       e.preventDefault();
   };
 
@@ -340,6 +342,8 @@ window.onload = function () {
   start();
 };
 
+var xT;
+var yT;
 
 function reset() {
   // Reset canvas-related variables
@@ -348,7 +352,9 @@ function reset() {
   boundsx = canvas.width - 1;
   boundsy = canvas.height - 1;
   ctx.scale(2, 2);
-  ctx.translate(-300, -50);
+  xT = canvas.width / 4;
+  yT = 50;
+  ctx.translate(-xT, -yT);
   ctx.strokeStyle = 'rgb(201, 201, 201)';
 
   // Reset cloth simulation
